@@ -36,10 +36,13 @@ def GetNew(n:int=100):
     db.commit()
 
 # Update the vote count of all entries in the database
-def UpdateVotes():
+def Update():
     entries = db.getAll("posts", ["sub_id", "votes"])
     for entry in entries:
-        submission = reddit.submission(id=entry["sub_id"])
+        try:
+            submission = reddit.submission(id=entry["sub_id"])
+        except: # Ignore post if we can no longer grab the submission from reddit
+            continue
         if submission.score != entry["votes"]:
             db.update("posts", {"votes": submission.score}, ("sub_id=%s", entry["sub_id"]))
     db.commit()
