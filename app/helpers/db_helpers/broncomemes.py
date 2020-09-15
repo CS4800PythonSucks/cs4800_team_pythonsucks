@@ -46,7 +46,21 @@ def Update():
         if submission.score != entry["votes"]:
             db.update("posts", {"votes": submission.score}, ("sub_id=%s", entry["sub_id"]))
     db.commit()
-    
+
+# Upvote the submission and update the entry in the database. Return true on success
+def Upvote(sub_id:str):
+    try:
+        submission = reddit.submission(id=sub_id)
+    except:
+        return False
+    submission.upvote()
+    try:
+        db.update("posts", {"votes": submission.score}, ("sub_id=%s", sub_id))
+    except:
+        return False
+    db.commit()
+    return True
+        
 # Test driver
 # if __name__ == "__main__":
 #     MakeDB()
