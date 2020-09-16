@@ -5,7 +5,11 @@ To configure, supply config/database.yml, app/helpers/db_helpers/db.ini, and app
 <h3>Assignment 3</h3>
 <p>
   Relevant pages for assignment 3 have been given routes of the form<br>
-  <code>/assignments/[FIRST_NAME]</code>
+  <code>/assignments/[FIRST_NAME]</code><br>
   e.g. /assignments/harvey<br>
-  and are associated with the controller "assignments"
+  and are associated with the controller "assignments"<br>
+  <ul>
+    <li><a href="54.193.67.197:3003/assignments/harvey">/assignments/harvey</a></li>
+    <li><a href="54.193.67.197:3003/assignments/alan">/assignments/alan</a></li>
+  </ul>
 </p>
