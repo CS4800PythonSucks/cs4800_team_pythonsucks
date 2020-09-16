@@ -8,6 +8,6 @@ To configure, supply config/database.yml, app/helpers/db_helpers/db.ini, and app
   <code>/assignments/[FIRST_NAME]</code><br>
   e.g. /assignments/harvey<br>
   and are associated with the controller "assignments"<br>
-  [/assignments/harvey](54.193.67.197:3003/assignments/harvey)
-  [/assignments/alan](54.193.67.197:3003/assignments/alan)
+  <a href="http://54.193.67.197:3003/assignments/harvey">/assignments/harvey</a><br>
+  <a href="http://54.193.67.197:3003/assignments/alan">/assignments/alan</a><br>
 </p>
