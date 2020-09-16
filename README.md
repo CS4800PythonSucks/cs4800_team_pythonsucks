@@ -9,7 +9,7 @@ To configure, supply config/database.yml, app/helpers/db_helpers/db.ini, and app
   e.g. /assignments/harvey<br>
   and are associated with the controller "assignments"<br>
   <ul>
-    <li><a href="54.193.67.197:3003/assignments/harvey">/assignments/harvey</a></li>
-    <li><a href="54.193.67.197:3003/assignments/alan">/assignments/alan</a></li>
+    <li>[/assignments/harvey](54.193.67.197:3003/assignments/harvey)</li>
+    <li>[/assignments/alan](54.193.67.197:3003/assignments/alan)</li>
   </ul>
 </p>
