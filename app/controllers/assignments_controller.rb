@@ -1,6 +1,7 @@
 class AssignmentsController < ApplicationController
   def harvey
-    @post = Post.order("RAND()").first
+    @post1 = Post.order("RAND()").first
+    @post2 = Post.order(:votes).first
   end
 
   def alan
