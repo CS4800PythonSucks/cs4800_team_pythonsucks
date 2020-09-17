@@ -38,16 +38,15 @@ def GetNew(n:int=100):
 # Update the vote count of all entries in the database
 def Update():
     entries = db.getAll("posts", ["sub_id", "votes"])
+    id_list = []
     for entry in entries:
-        try:
-            submission = reddit.submission(id=entry["sub_id"])
-        except: # Ignore post if we can no longer grab the submission from reddit
-            print("broncomemes: update: could not fetch info for id {}".format(entry["sub_id"]))
-            continue
-        if submission.score != entry["votes"]:
-            # Run a raw query since the update function is causing problems
-            sql = "UPDATE posts SET votes='{}' WHERE sub_id='{}'".format(submission.score, submission.id)
-            db.query(sql)
+        id_list.append("t3_" + entry["sub_id"])
+    sub_list = reddit.info(fullnames=id_list)
+    for submission in sub_list:
+        # Run a raw query since the update function is causing problems
+        sql = "UPDATE posts SET votes='{}' WHERE sub_id='{}'".format(submission.score, submission.id)
+        print(sql)
+        db.query(sql)
     db.commit()
 
 # Upvote the submission and update the entry in the database. Return true on success
@@ -69,8 +68,4 @@ def Upvote(sub_id:str):
         
 # Test driver
 # if __name__ == "__main__":
-#     MakeDB()
-#     posts = db.getAll("posts", ["title"])
-#     for post in posts:
-#         print(post["title"])
 #     Update()
