@@ -52,10 +52,10 @@ def Update():
 def Upvote(sub_id:str):
     try:
         submission = reddit.submission(id=sub_id)
+        submission.upvote()
     except:
         print("broncomemes: upvote: could not upvote id {}".format(sub_id))
         return False
-    submission.upvote()
     try:
         sql = "UPDATE posts SET votes='{}' WHERE sub_id='{}'".format(submission.score, submission.id)
         db.query(sql)
