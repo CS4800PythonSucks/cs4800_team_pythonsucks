@@ -45,7 +45,6 @@ def Update():
     for submission in sub_list:
         # Run a raw query since the update function is causing problems
         sql = "UPDATE posts SET votes='{}' WHERE sub_id='{}'".format(submission.score, submission.id)
-        print(sql)
         db.query(sql)
     db.commit()
 
