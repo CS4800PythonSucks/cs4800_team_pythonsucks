@@ -42,9 +42,12 @@ def Update():
         try:
             submission = reddit.submission(id=entry["sub_id"])
         except: # Ignore post if we can no longer grab the submission from reddit
+            print("broncomemes: update: could not fetch info for id {}".format(entry["sub_id"]))
             continue
         if submission.score != entry["votes"]:
-            db.update("posts", {"votes": submission.score}, ("sub_id=%s", entry["sub_id"]))
+            # Run a raw query since the update function is causing problems
+            sql = "UPDATE posts SET votes='{}' WHERE sub_id='{}'".format(submission.score, submission.id)
+            db.query(sql)
     db.commit()
 
 # Upvote the submission and update the entry in the database. Return true on success
@@ -52,11 +55,14 @@ def Upvote(sub_id:str):
     try:
         submission = reddit.submission(id=sub_id)
     except:
+        print("broncomemes: upvote: could not upvote id {}".format(sub_id))
         return False
     submission.upvote()
     try:
-        db.update("posts", {"votes": submission.score}, ("sub_id=%s", sub_id))
+        sql = "UPDATE posts SET votes='{}' WHERE sub_id='{}'".format(submission.score, submission.id)
+        db.query(sql)
     except:
+        print("broncomemes: upvote: failed to update database for id {}".format(sub_id))
         return False
     db.commit()
     return True
@@ -67,4 +73,4 @@ def Upvote(sub_id:str):
 #     posts = db.getAll("posts", ["title"])
 #     for post in posts:
 #         print(post["title"])
-#     UpdateVotes()
+#     Update()
