@@ -39,7 +39,7 @@ async def GetNew(n:int=100):
             # Check if the submission already exists in the database
             sql = "SELECT EXISTS(SELECT * FROM posts WHERE sub_id='{}' LIMIT 1)".format(submission.id)
             r = _db.query(sql)
-            if r[0] == 0: # Insert into database
+            if r.fetchone()[0] == 0: # Insert into database
                 _db.insert("posts", { "sub_id": submission.id, "title": submission.title, "url": submission.url, "votes": submission.score, "subreddit": CALPOLY, "created": submission.created_utc }, "sub_id")
         _db.commit()
 
