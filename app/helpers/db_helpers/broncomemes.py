@@ -36,7 +36,11 @@ async def MakeDB():
 async def GetNew(n:int=100):
     async with _lock:
         for submission in subreddit.search('flair:"Meme" self:no', sort='new', limit=n):
-            _db.insertOrUpdate("posts", { "sub_id": submission.id, "title": submission.title, "url": submission.url, "votes": submission.score, "subreddit": CALPOLY, "created": submission.created_utc }, "sub_id")
+            # Check if the submission already exists in the database
+            sql = "SELECT EXISTS(SELECT * FROM posts WHERE sub_id='{}' LIMIT 1)".format(submission.id)
+            r = _db.query(sql)
+            if r[0] == 0: # Insert into database
+                _db.insert("posts", { "sub_id": submission.id, "title": submission.title, "url": submission.url, "votes": submission.score, "subreddit": CALPOLY, "created": submission.created_utc }, "sub_id")
         _db.commit()
 
 # Update the vote count of all entries in the database
@@ -73,7 +77,11 @@ async def Upvote(sub_id:str):
     return True
         
 # Test driver
-if __name__ == "__main__":
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(Update())
-    loop.close()
+# if __name__ == "__main__":
+    # loop = asyncio.get_event_loop()
+    # loop.run_until_complete(Update())
+    # loop.close()
+    # test = _db.query("SELECT EXISTS(SELECT * FROM posts WHERE sub_id='iuzcw8' LIMIT 1)")
+    # print(test.fetchone()[0])
+    # test = _db.query("SELECT EXISTS(SELECT * FROM posts WHERE sub_id='foo' LIMIT 1)") # Non-existent entry
+    # print(test.fetchone()[0])
