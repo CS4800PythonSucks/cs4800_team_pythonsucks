@@ -17,4 +17,5 @@ If requirements were installed into a python virtual environment, edit <strong>d
   and are associated with the controller "assignments"<br>
   <a href="http://54.193.67.197:3003/assignments/harvey">/assignments/harvey</a><br>
   <a href="http://54.193.67.197:3003/assignments/alan">/assignments/alan</a><br>
+  <a href="http://54.193.67.197:3003/assignments/sean">/assignments/sean</a><br>
 </p>
