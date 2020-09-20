@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   # Routes for assignment 3 part 3
   get '/assignments/harvey', to: 'assignments#harvey'
   get '/assignments/alan', to: 'assignments#alan'
+  get '/assignments/sean', to: 'assignments#sean'
 end
