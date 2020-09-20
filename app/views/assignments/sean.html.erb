@@ -1,41 +1,10 @@
 <!DOCTYPE html>
 <html>
-	<div class="header">
-		<h1>Sean</h1>
-	</div>
-  <head>
-    <title>Memes</title>
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css'%>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
   <body>
-
-  	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  	<a class="navbar-brand" href="#">Memes</a>
-  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  	</button>
-
-  	<div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    	<ul class="navbar-nav mr-auto">
-      	<li class="nav-item active">
-        	<a class="nav-link" href="#">New Meme <span class="sr-only">(current)</span></a>
-      	</li>
-    	</ul>
-  	</div>
-	</nav>
-	<div class="row">
-  		<div class="main">
-    
-    		<div class="fakeimg" style="height:200px;"><img src=<%= @post.url %> height="600" width="600" class="center">
-    		</div>
-    
-  		</div>
-	</div>
-
-    <%= yield %>
+    <h1>Assignment 3 part 3</h1><br>
+    <h2>by Sean Nakama</h2><br>
+      Here's a random meme<br>
+      <img src=<%= @post1.url %>>
+    </p>
   </body>
 </html>
