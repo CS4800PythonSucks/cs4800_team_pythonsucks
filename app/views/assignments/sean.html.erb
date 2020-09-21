@@ -1,11 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <body>
-    <h1>Assignment 3 part 3</h1><br>
-    <h2>by Sean Nakama</h2><br>
-    <p>
-      Here's a random meme<br>
-      <img src=<%= @post1.url %>>
+	<div class="header">
+		<h1>Assignment 3 part 3</h1>
+	</div>
+  <head>
+    <title>Memes</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css'%>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+<body class="text-center" style="background-color:powderblue;">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="masthead mb-auto">
+    <div class="inner">
+      <h3 class="masthead-brand">by Sean Nakama</h3>
+    </div>
+  </header>
+  <main role="main" class="inner cover">
+    <h1 class="cover-heading">Work in progress.</h1>
+    <img src="https://media0.giphy.com/media/gizZvICXsQn2g6JajG/giphy.gif" alt="Work in Progress" style="width:500px;height:600px;">
+    <p class="lead">Our goal is to create a website where people can see their favorite memes. </p>
+    <p class="lead">
+      <a href = "https://mailchi.mp/67e73b68bb41/assignment-3">
+		  			<button class="btn btn-primary btn-xl" style="background-color:gray; color:white; border:gray" > Find Out More</button>
+	  </a>
     </p>
-  </body>
+  </main>
+</div>
+</body>
 </html>
