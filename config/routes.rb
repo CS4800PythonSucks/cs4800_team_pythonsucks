@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get '/assignments/harvey', to: 'assignments#harvey'
   get '/assignments/alan', to: 'assignments#alan'
   get '/assignments/sean', to: 'assignments#sean'
+  get '/assignments/ian', to: 'assignments#ian'
 end

@@ -14,4 +14,7 @@ class AssignmentsController < ApplicationController
   def sean
   	@post = Post.order("RAND()").first
   end
+
+  def ian
+  end
 end
