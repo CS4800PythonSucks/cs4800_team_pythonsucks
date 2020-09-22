@@ -19,3 +19,9 @@ If requirements were installed into a python virtual environment, edit <strong>d
   <a href="http://54.193.67.197:3003/assignments/alan">/assignments/alan</a><br>
   <a href="http://54.193.67.197:3003/assignments/sean">/assignments/sean</a><br>
 </p>
+<h3>Assignment 4</h3>
+<p>
+  Relevant pages for assignment 4 have been given routes of the form<br>
+  <code>/assignments/[FIRST_NAME]2</code><br>
+  <a href="http://54.193.67.197:3003/assignments/harvey2">/assignments/harvey2</a><br>
+</p>
