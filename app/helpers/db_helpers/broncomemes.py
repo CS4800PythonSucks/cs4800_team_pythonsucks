@@ -33,14 +33,15 @@ async def MakeDB():
         _db.commit()
 
 # Update database with newest n posts (default 100)
-async def GetNew(n:int=100):
+async def GetNew(n:int=20):
     async with _lock:
         for submission in subreddit.search('flair:"Meme" self:no', sort='new', limit=n):
             # Check if the submission already exists in the database
             sql = "SELECT EXISTS(SELECT * FROM posts WHERE sub_id='{}' LIMIT 1)".format(submission.id)
             r = _db.query(sql)
-            if r.fetchone()[0] == 0: # Insert into database
-                _db.insert("posts", { "sub_id": submission.id, "title": submission.title, "url": submission.url, "votes": submission.score, "subreddit": CALPOLY, "created": submission.created_utc }, "sub_id")
+            exists = r.fetchone()[0]
+            if exists == 0: # Insert into database
+                _db.insert("posts", { "sub_id": submission.id, "title": submission.title, "url": submission.url, "votes": submission.score, "subreddit": CALPOLY, "created": submission.created_utc })
         _db.commit()
 
 # Update the vote count of all entries in the database
