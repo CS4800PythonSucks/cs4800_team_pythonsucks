@@ -166,10 +166,10 @@ class SimpleMysql:
 
         query = self._serialize_update(data)
 
-        sql = "UPDATE %s SET %s" % (table, query)
+        sql = "UPDATE {} SET {}".format(table, query)
 
         if where and len(where) > 0:
-            sql += " WHERE %s" % where[0]
+            sql += " WHERE {}".format(where[0])
 
         values = tuple(data.values())
 
