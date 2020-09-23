@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   get '/assignments/sean', to: 'assignments#sean'
   get '/assignments/ian', to: 'assignments#ian'
   # Home route
-  get '/', to: 'posts#index'
+  root 'posts#index'
 end
