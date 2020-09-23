@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<div class="header">
+		<h1>Assignment 4</h1>
+	</div>
+  <head>
+    <title>A4</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css'%>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+<body class="text-center" style="background-color:powderblue;">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="masthead mb-auto">
+    <div class="inner">
+      <h2 class="masthead-brand">by Sean Nakama</h2>
+    </div>
+  </header>
+</div>
+</body>
+<h3>Implement 'devise' ruby gem library</h3>
+
+<% if current_user %>
+<%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+<% else %>
+<%= link_to 'Sign Up', new_user_registration_path %>
+<br>
+<%= link_to 'Sign in', new_user_session_path %>
+<% end %>
+</html>
