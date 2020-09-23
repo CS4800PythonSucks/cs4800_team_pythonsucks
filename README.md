@@ -28,4 +28,5 @@ If requirements were installed into a python virtual environment, edit <strong>d
   <code>/assignments/[FIRST_NAME]2</code><br>
   <a href="http://54.193.67.197:3003/assignments/harvey2">/assignments/harvey2</a><br>
   <a href="http://54.193.67.197:3003/assignments/alan2">/assignments/alan2</a><br>
+  <a href="http://54.193.67.197:3003/assignments/alan2">/assignments/sean2</a><br>
 </p>
