@@ -1,7 +1,0 @@
-simplemysql/__init__.py
-simplemysql/simplemysql.py
-simplemysql.egg-info/PKG-INFO
-simplemysql.egg-info/SOURCES.txt
-simplemysql.egg-info/dependency_links.txt
-simplemysql.egg-info/requires.txt
-simplemysql.egg-info/top_level.txt
