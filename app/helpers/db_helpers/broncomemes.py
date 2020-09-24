@@ -60,21 +60,20 @@ async def Update():
         _db.commit()
 
 # Upvote the submission and update the entry in the database. Return true on success
-async def Upvote(sub_id:str):
+def Upvote(sub_id:str):
     try:
         submission = reddit.submission(id=sub_id)
         submission.upvote()
     except:
         print("broncomemes: upvote: could not upvote id {}".format(sub_id))
         return False
-    async with _lock:
-        try:
-            sql = "UPDATE posts SET votes='{}' WHERE sub_id='{}'".format(submission.score, submission.id)
-            _db.query(sql)
-        except:
-            print("broncomemes: upvote: failed to update database for id {}".format(sub_id))
-            return False
-        _db.commit()
+    try:
+        sql = "UPDATE posts SET votes='{}' WHERE sub_id='{}'".format(submission.score, submission.id)
+        _db.query(sql)
+    except:
+        print("broncomemes: upvote: failed to update database for id {}".format(sub_id))
+        return False
+    _db.commit()
     return True
         
 # Test driver
