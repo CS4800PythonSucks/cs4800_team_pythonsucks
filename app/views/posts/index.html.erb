@@ -1,9 +1,31 @@
-<!DOCTYPE html>
-<html>
-  <body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand">Memes</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="active">
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a>Gallery</a>
+        </li>
+    </div>
+  </div>
+</nav>
+<div class="container" role="main">
+  <div class="page-header">
+    <br>
     <h3><%= @post.title %></h3>
-    <img width="50%" height="50%" src=<%= @post.url %> alt="random meme"><br>
-    <p>Upvotes: <%= @post.votes %></p>
-    <p>Source: <a href=<%= @link %>><%= @link %></a></p>
-  </body>
-</html>
+    <span class="label label-success">Upvotes: <%= @post.votes %></span>
+  </div>
+  <div class="jumbotron vertical-center">
+    <center>
+      <img data-src="holder.js/200x200" class="img-thumbnail" alt="meme image" src=<%= @post.url %> data-holder-rendered="true"><br>
+    </center>
+  </div>  
+  <form action=<%= @link %> method="get">
+    <button type="submit" class="btn btn-lg btn-info">Source</button>
+  </form>
+</div>
