@@ -20,9 +20,7 @@
     <span class="label label-success">Upvotes: <%= @post.votes %></span>
   </div>
   <div class="jumbotron vertical-center">
-    <center>
-      <img data-src="holder.js/200x200" class="img-thumbnail" alt="meme image" src=<%= @post.url %> data-holder-rendered="true"><br>
-    </center>
+      <img data-src="holder.js/200x200" class="img-thumbnail center" alt="meme image" src=<%= @post.url %> data-holder-rendered="true"><br>
   </div>  
   <form action=<%= @link %> method="get">
     <button type="submit" class="btn btn-lg btn-info">Source</button>
