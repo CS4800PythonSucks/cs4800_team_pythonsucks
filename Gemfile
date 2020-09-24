@@ -56,3 +56,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # For assignment 4 Harvey Lin
 gem 'http', '~> 4.4', '>= 4.4.1'
+
+# Install Bootstrap
+gem 'bootstrap', '~> 4.5.2'
