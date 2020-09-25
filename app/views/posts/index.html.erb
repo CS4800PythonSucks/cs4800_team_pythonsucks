@@ -20,9 +20,13 @@
     <span class="label label-success">Upvotes: <%= @post.votes %></span>
   </div>
   <div class="jumbotron vertical-center">
-      <img data-src="holder.js/200x200" class="img-thumbnail center" alt="meme image" src=<%= @post.url %> data-holder-rendered="true"><br>
+    <% if @is_video %>
+    <iframe class="center" src=<%= @url %> height="700px">iframe not supported</iframe>
+    <% else %>
+    <img data-src="holder.js/200x200" class="img-thumbnail center" alt="meme image" src=<%= @url %> data-holder-rendered="true"><br>
+    <% end %>
   </div>  
-  <form action=<%= @link %> method="get">
+  <form action=<%= @link %> method="get" target="_blank">
     <button type="submit" class="btn btn-lg btn-info">Source</button>
   </form>
 </div>
