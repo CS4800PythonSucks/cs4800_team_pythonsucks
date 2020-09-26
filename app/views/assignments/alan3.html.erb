@@ -1,0 +1,29 @@
+<h1>Testing CSS GALLERY</h1>
+<div id="gallery">
+<ul>
+  <% @post4.each do |post| %>
+
+     <% if post.url.start_with? "https://www.youtube.com/" then %>
+
+     <% else %>
+        <li id="image1"> 
+           <div class="mosaicItem"><a href="#popin1">
+           <img src=<%= post.url %> height="400" width="400">
+           <div class="text">description lorim</div>
+        </a></div>
+            <div class="popin" id="popin1"><a href="#image1">
+            <div class="overlay"></div>
+            <div class="imgBox"><img src=<%= post.url %> ></div>
+        </a></div>
+        </li>
+     <% end %>
+
+
+
+
+  <% end %>   
+     
+</ul>
+  
+
+</div>

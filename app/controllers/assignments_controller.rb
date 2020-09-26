@@ -15,6 +15,10 @@ class AssignmentsController < ApplicationController
     
   end
 
+  def alan3 
+    @post4 = Post.all
+  end
+
   def sean
   	
   end
