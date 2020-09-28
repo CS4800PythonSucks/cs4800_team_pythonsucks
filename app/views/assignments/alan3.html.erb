@@ -1,33 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
+
 
 <h1>Full CSS gallery with popin</h1>
 
 
 <div id="gallery">
-<ul>
+   <ul>
 
-  <% @post4.each do |post| %>
+     <% $image_id = 1 %>
 
-     <% if post.url.start_with? "https://i.redd.it/" then %>
-         <li id="image1"> 
-            <div class="mosaicItem"><a href="#popin1">
-            <img src=<%= post.url %> height="400" width="400">
-            <div class="text">description lorim</div>
-         </a></div>
-            <div class="popin" id="popin1"><a href="#image1">
-            <div class="overlay"></div>
-            <div class="imgBox"><img src=<%= post.url %> alt="" ></div>
-         </a></div>
-        </li>
+     <% @post4.each do |post| %>
 
+        <% if post.url.start_with? "https://i.redd.it/" then %>
 
-     <% else %>
+        <li id="image<%= $image_id %>">
+           <div class="mosaicItem"><a href="#popin<%= $image_id %>">
+              <img src="<%= post.url %>" height="400" width = "400" alt="" />
+              <div class="text"><%= post.title %> </div>
+        </a></div>
+           <div class="popin" id="popin<%= $image_id %>"><a href="#image<%= $image_id %>">
+           <div class="overlay"></div>
+           <div class="imgBox"><img src="<%= post.url %>" height="800"  alt="" /></div>
+        </a></div>
+        </li> 
 
-     <% end %>
-   <% end %>   
+        <% $image_id += 1 %> 
+
+        <% else %>
+
+        <% end %>
+
+    <% end %>   
    
+   </ul>
 
 </div>
 
-</html>
+
