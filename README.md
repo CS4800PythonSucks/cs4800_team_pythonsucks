@@ -12,7 +12,7 @@ If requirements were installed into a python virtual environment, edit <strong>d
 <h3>Routes</h3>
 <p>
   <a href="http://54.193.67.197:3003/">Home</a> <strong>(WIP)</strong><br>
-  <a href="http://54.193.67.197:3003/gallery">Gallery</a> <strong>(Not yet implemented)</strong>
+  <a href="http://54.193.67.197:3003/assignments/alan3">Gallery</a> <strong>(temporary gallary)</strong>
 </p>
 <h3>Assignment 3</h3>
 <p>
