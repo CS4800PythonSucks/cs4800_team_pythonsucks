@@ -25,7 +25,7 @@
     <iframe class="center" src=<%= @url %> height="700px">iframe not supported</iframe>
     <% else %>
     <%= javascript_pack_tag 'post_index' %>
-    <img data-src="holder.js/200x200" id="homeImg" class="img-thumbnail center" alt=<%=h @post.title %> src=<%= @url %> data-holder-rendered="true"><br>
+    <img data-src="holder.js/200x200" id="homeImg" class="img-thumbnail center" src=<%= @url %> data-holder-rendered="true"><br>
     <!--Modal image for image links-->
     <div id="homeModal" class="modal">
       <img id="modalImg" class="modal-content">
