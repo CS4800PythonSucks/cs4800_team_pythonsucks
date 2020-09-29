@@ -20,10 +20,17 @@
     <span class="label label-success">Upvotes: <%= @post.votes %></span>
   </div>
   <div class="jumbotron vertical-center">
+    <!--Use iframe tag for video link, img tag for image link-->
     <% if @is_video %>
     <iframe class="center" src=<%= @url %> height="700px">iframe not supported</iframe>
     <% else %>
-    <img data-src="holder.js/200x200" class="img-thumbnail center" alt="meme image" src=<%= @url %> data-holder-rendered="true"><br>
+    <%= javascript_pack_tag 'post_index' %>
+    <img data-src="holder.js/200x200" id="homeImg" class="img-thumbnail center" alt=<%=h @post.title %> src=<%= @url %> data-holder-rendered="true"><br>
+    <!--Modal image for image links-->
+    <div id="homeModal" class="modal">
+      <img id="modalImg" class="modal-content">
+      <div id="caption"><%= @post.title %></div>
+    </div>
     <% end %>
   </div>  
   <form action=<%= @link %> method="get" target="_blank">
