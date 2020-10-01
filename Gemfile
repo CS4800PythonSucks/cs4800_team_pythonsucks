@@ -54,5 +54,8 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# For pagination
+gem 'will_paginate', '~> 3.3'
+
 # For assignment 4 Harvey Lin
 gem 'http', '~> 4.4', '>= 4.4.1'
