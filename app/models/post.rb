@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  def is_video
+  def is_video # Check if the content is a video
     if url.start_with? "https://www.youtube.com/" then
       return true
     elsif url.start_with? "https://v.redd.it/" then
@@ -8,7 +8,7 @@ class Post < ApplicationRecord
     return false
   end
 
-  def link
+  def link # Return the link to the content of the post. Construct an embedded link for video content if needed.
     if url.start_with? "https://www.youtube.com/" then
       return "https://www.youtube.com/embed/" + url[-11..-1]
     elsif url.start_with? "https://v.redd.it/" then
@@ -18,11 +18,11 @@ class Post < ApplicationRecord
     end
   end
 
-  def source
+  def source # Return the link to the reddit post
     return "https://redd.it/" + sub_id
   end
 
-  def timestamp
+  def timestamp # Return the date the post was created (on reddit)
     t = Time.at(created)
     return t.strftime("%x")
   end
