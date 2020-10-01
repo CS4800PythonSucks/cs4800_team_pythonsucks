@@ -23,12 +23,12 @@
   <div class="jumbotron vertical-center">
     <!--Use iframe tag for video link, img tag for image link-->
     <% if @post.is_video %>
-    <iframe class="center" src=<%= @post.link %> height="700px">iframe not supported</iframe>
+    <iframe class="center" src=<%= @post.link %> height="700px" data-title=<%= @post.nb_title %>>iframe not supported</iframe>
     <% else %>
-    <%= javascript_pack_tag 'post_index' %>
-    <img data-src="holder.js/200x200" id="homeImg" class="img-thumbnail center" src=<%= @post.url() %> data-holder-rendered="true"><br>
+    <%= javascript_pack_tag 'modal_img' %>
+    <img data-src="holder.js/200x200" id="homeImg" class="img-thumbnail center" src=<%= @post.url %> data-title=<%= @post.nb_title %> data-holder-rendered="true"><br>
     <!--Modal image for image links-->
-    <div id="homeModal" class="modal">
+    <div id="modalDiv" class="modal">
       <img id="modalImg" class="modal-content">
       <div id="caption"><%= @post.title %></div>
     </div>

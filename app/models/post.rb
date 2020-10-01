@@ -26,4 +26,8 @@ class Post < ApplicationRecord
     t = Time.at(created)
     return t.strftime("%x")
   end
+
+  def nb_title # Return title with spaces replaced with underscored to be non-breaking
+    return title.gsub(' ', '_')
+  end
 end
