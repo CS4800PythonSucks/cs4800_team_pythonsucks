@@ -2,8 +2,8 @@
 $(document).ready(function() {
     const scrollStep = 1; // Number of pixels for a single 
     const keyAction = {
-        j: $(window).scrollBy(0, scrollStep), // Scroll down
-        k: $(window).scrollBy(0, -scrollStep) // Scroll up
+        j: window.scrollBy(0, scrollStep), // Scroll down
+        k: window.scrollBy(0, -scrollStep) // Scroll up
     };
     $(window).keypress(function(e) {
         var key = e.which;
