@@ -1,0 +1,9 @@
+<%= javascript_pack_tag 'pagination'%>
+<h1>Test Gallery</h1>
+<div id="my-posts">
+  <%= render @posts %>
+</div>
+
+<div id="infinite-scroll">
+  <%= will_paginate %>
+</div>

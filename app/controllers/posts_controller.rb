@@ -2,6 +2,22 @@ class PostsController < ApplicationController
   def index
     @post = Post.order("RAND()").first
   end
+
+  def gallery
+    params.require(:page)
+    params.require(:sort)
+    if params[:sort] == "new" then # Sort by created
+      @posts = Post.paginate(page: params[:page], per_page: 70).order("created DESC")
+    elsif params[:sort] == "votes" then # Sort by votes
+      @posts = Post.paginate(page: params[:page], per_page: 70).order("votes DESC")
+    elsif params[:sort] == "rand" then # Random order
+      @posts = Post.paginate(page: params[:page], per_page: 70).order("RAND()")
+    end
+    respond_to do |format|
+      format.html
+      format.js
+      end
+  end
   
   # def upvote
   #   # Get authorization token from reddit

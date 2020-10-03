@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get '/assignments/sean', to: 'assignments#sean'
   get '/assignments/sean2', to: 'assignments#sean2'
   get '/assignments/ian', to: 'assignments#ian'
+  # Gallery route
+  get '/gallery', to: 'posts#gallery'
   # Home route
   root 'posts#index'
 end
