@@ -37,5 +37,7 @@ yarn-debug.log*
 
 # Ignore all configuration files
 *.ini
-#Ignore all pycache files
+# Ignore all pycache files
 *__pycache__
+# Ignore lock files
+*.lock
