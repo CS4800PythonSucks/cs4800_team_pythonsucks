@@ -1,7 +1,7 @@
 # cs4800_team_pythonsucks
 CS4800 team repo<br>
 <h3>Configuration</h3>
-To set up the database, supply config/database.yml, app/helpers/db_helpers/db.ini, and app/helpers/db_helpers/praw.ini<br>
+To set up the database, supply config/database.yml, db_helpers/db.ini, and db_helpers/praw.ini<br>
 To install the required python dependencies, use <code>pip install -r requirements.txt</code><br>
 To launch the service, start the database updater script first and then start rails<br>
 <code>
@@ -12,7 +12,7 @@ If requirements were installed into a python virtual environment, edit <strong>d
 <h3>Routes</h3>
 <p>
   <a href="http://54.193.67.197:3003/">Home</a> <strong>(WIP)</strong><br>
-  <a href="http://54.193.67.197:3003/assignments/alan3">Gallery</a> <strong>(temporary gallary)</strong>
+  <a href="http://54.193.67.197:3003/gallery?page=1&sort=new">Gallery</a> <strong>(Very WIP)</strong>
 </p>
 <h3>Assignment 3</h3>
 <p>
