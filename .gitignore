@@ -41,3 +41,5 @@ yarn-debug.log*
 *__pycache__
 # Ignore lock files
 *.lock
+# Ignore mac system files
+._*
