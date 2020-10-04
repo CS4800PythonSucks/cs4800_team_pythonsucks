@@ -11,12 +11,10 @@ Rails.application.routes.draw do
   get '/assignments/sean', to: 'assignments#sean'
   get '/assignments/sean2', to: 'assignments#sean2'
   get '/assignments/ian', to: 'assignments#ian'
-<<<<<<< HEAD
+  get '/assignments/jose', to: 'assignments#jose'
+  
   # Gallery route
   get '/gallery', to: 'posts#gallery'
-=======
-  get '/assignments/jose', to: 'assignments#jose'
->>>>>>> 6aef3ed... Added in route for assignment
   # Home route
   root 'posts#index'
 end
