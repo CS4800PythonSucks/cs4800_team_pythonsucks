@@ -13,7 +13,7 @@ class Post < ApplicationRecord
       return "https://www.youtube.com/embed/" + url[-11..-1]
     elsif url.start_with? "https://v.redd.it/" then
       return "https://www.vrddit.com/?v=www.reddit.com%2Fr%2F" + subreddit + "%2Fcomments%2F" + sub_id
-    elsif url.start_with? "https://imgur.com/" then
+    elsif url.start_with? "https://imgur.com/" or url.start_with? "http://imgur.com/" then
       token = url.split('/')
       return "https://i.imgur.com/" + token.last + ".jpg"
     else

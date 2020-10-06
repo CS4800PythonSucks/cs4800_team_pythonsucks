@@ -4,14 +4,17 @@ class PostsController < ApplicationController
   end
 
   def gallery
+    perPage = 30
     params.require(:page)
     params.require(:sort)
     if params[:sort] == "new" then # Sort by created
-      @posts = Post.paginate(page: params[:page], per_page: 70).order("created DESC")
+      @posts = Post.paginate(page: params[:page], per_page: perPage).order("created DESC")
     elsif params[:sort] == "votes" then # Sort by votes
-      @posts = Post.paginate(page: params[:page], per_page: 70).order("votes DESC")
+      @posts = Post.paginate(page: params[:page], per_page: perPage).order("votes DESC")
     elsif params[:sort] == "rand" then # Random order
-      @posts = Post.paginate(page: params[:page], per_page: 70).order("RAND()")
+      @posts = Post.paginate(page: params[:page], per_page: perPage).order("RAND()")
+    else # Fall back to sort by created
+      @posts = Post.paginate(page: params[:page], per_page: perPage).order("created DESC")
     end
     respond_to do |format|
       format.html

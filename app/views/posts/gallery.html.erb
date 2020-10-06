@@ -1,9 +1,36 @@
-<%= javascript_pack_tag 'pagination'%>
-<h1>Test Gallery</h1>
-<div id="my-posts">
-  <%= render @posts %>
-</div>
-
-<div id="infinite-scroll">
-  <%= will_paginate %>
+<%= javascript_pack_tag 'pagination' %>
+<%= javascript_pack_tag 'vi_scroll' %>
+<%= javascript_pack_tag 'modal_img'%>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand">Memes</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li class="active">
+          <a href="/gallery?page=1&sort=new">Gallery</a>
+        </li>
+    </div>
+  </div>
+</nav>
+<div class="container" role="main">
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row" id="post-gallery">
+        <%= render @posts %>
+      </div>
+      <div id="infinite-scroll">
+        <%= will_paginate %>
+      </div>
+    </div>
+  </div>
+  <!--Modal image for image links-->
+  <div id="modalDiv" class="modal">
+    <img id="modalImg" class="modal-content">
+    <div id="caption"></div>
+  </div>
 </div>
