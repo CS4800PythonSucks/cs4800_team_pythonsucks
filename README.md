@@ -35,3 +35,9 @@ If requirements were installed into a python virtual environment, edit <strong>d
   <a href="http://54.193.67.197:3003/assignments/alan2">/assignments/alan2</a><br>
   <a href="http://54.193.67.197:3003/assignments/sean2">/assignments/sean2</a><br>
 </p>
+<h3>Assignment 6</h3>
+<p>
+  Tests are written using the Minitest testing framework bundled with rails to verify the integrity of models, controllers, views, etc. Because they need access to the database, database credentials are required to run them.
+  <br><br>
+  Harvey Lin: Wrote a validation test for the Post model sub_id field in test/models/post_test.rb
+</p>
