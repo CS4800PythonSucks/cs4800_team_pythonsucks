@@ -42,4 +42,6 @@ yarn-debug.log*
 # Ignore lock files
 *.lock
 # Ignore mac system files
-._*
+*._*
+# Ignore database credentials
+db/database.yml
