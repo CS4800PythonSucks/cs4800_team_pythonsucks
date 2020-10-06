@@ -44,4 +44,4 @@ yarn-debug.log*
 # Ignore mac system files
 *._*
 # Ignore database credentials
-db/database.yml
+config/database.yml
