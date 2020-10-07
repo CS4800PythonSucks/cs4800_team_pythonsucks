@@ -7,6 +7,6 @@
 one: 
 # column: value
 #
-  email: testemail1@mail.com
-  encrypted_password: poop1
+  email: ""
+  encrypted_password: ""
   
