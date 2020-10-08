@@ -15,33 +15,54 @@ _db = SimpleMysql(
 )
 reddit = praw.Reddit("meme")
 CALPOLY = "CalPolyPomona"
-subreddit = reddit.subreddit(CALPOLY)
+PH = "ProgrammerHumor"
+cppSubreddit = reddit.subreddit(CALPOLY)
+phSubreddit = reddit.subreddit(PH)
 _lock = asyncio.Lock() # Mutex lock for db object
 
 # Initialize/Update the database with memes scraped from calpoly reddit
 async def MakeDB():
     async with _lock:
+        # Search CalPolyPomona
         # Search hot
-        for submission in subreddit.search('flair:"Meme" self:no', sort='hot', limit=1000):
+        for submission in cppSubreddit.search('flair:"Meme" self:no', sort='hot', limit=1000):
             _db.insertOrUpdate("posts", { "sub_id": submission.id, "title": submission.title, "url": submission.url, "votes": submission.score, "subreddit": CALPOLY, "created": submission.created_utc }, "sub_id")
         # Search top
-        for submission in subreddit.search('flair:"Meme" self:no', sort='top', limit=1000):
+        for submission in cppSubreddit.search('flair:"Meme" self:no', sort='top', limit=1000):
             _db.insertOrUpdate("posts", { "sub_id": submission.id, "title": submission.title, "url": submission.url, "votes": submission.score, "subreddit": CALPOLY, "created": submission.created_utc }, "sub_id")
         # Search new
-        for submission in subreddit.search('flair:"Meme" self:no', sort='new', limit=1000):
+        for submission in cppSubreddit.search('flair:"Meme" self:no', sort='new', limit=1000):
             _db.insertOrUpdate("posts", { "sub_id": submission.id, "title": submission.title, "url": submission.url, "votes": submission.score, "subreddit": CALPOLY, "created": submission.created_utc }, "sub_id")
+        # Search ProgrammerHumor
+        # Search hot
+        for submission in phSubreddit.search('self:no', sort='hot', limit=1000):
+            _db.insertOrUpdate("posts", { "sub_id": submission.id, "title": submission.title, "url": submission.url, "votes": submission.score, "subreddit": PH, "created": submission.created_utc }, "sub_id")
+        # Search top
+        for submission in phSubreddit.search('self:no', sort='top', limit=1000):
+            _db.insertOrUpdate("posts", { "sub_id": submission.id, "title": submission.title, "url": submission.url, "votes": submission.score, "subreddit": PH, "created": submission.created_utc }, "sub_id")
+        # Search new
+        for submission in phSubreddit.search('self:no', sort='new', limit=1000):
+            _db.insertOrUpdate("posts", { "sub_id": submission.id, "title": submission.title, "url": submission.url, "votes": submission.score, "subreddit": PH, "created": submission.created_utc }, "sub_id")
         _db.commit()
 
 # Update database with newest n posts (default 100)
 async def GetNew(n:int=20):
     async with _lock:
-        for submission in subreddit.search('flair:"Meme" self:no', sort='new', limit=n):
+        # Search CalPolyPomona
+        for submission in cppSubreddit.search('flair:"Meme" self:no', sort='new', limit=n):
             # Check if the submission already exists in the database
             sql = "SELECT EXISTS(SELECT * FROM posts WHERE sub_id='{}' LIMIT 1)".format(submission.id)
             r = _db.query(sql)
             exists = r.fetchone()[0]
             if exists == 0: # Insert into database
                 _db.insert("posts", { "sub_id": submission.id, "title": submission.title, "url": submission.url, "votes": submission.score, "subreddit": CALPOLY, "created": submission.created_utc })
+        # Search ProgrammerHumor
+        for ubmission in phSubreddit.search('self:no', sort='new', limit=n*5): # ProgrammerHumor is much more active so we'll up the limit
+            sql = "SELECT EXISTS(SELECT * FROM posts WHERE sub_id='{}' LIMIT 1)".format(submission.id)
+            r = _db.query(sql)
+            exists = r.fetchone()[0]
+            if exists == 0: # Insert into database
+                _db.insert("posts", { "sub_id": submission.id, "title": submission.title, "url": submission.url, "votes": submission.score, "subreddit": PH, "created": submission.created_utc })
         _db.commit()
 
 # Update the vote count of all entries in the database
