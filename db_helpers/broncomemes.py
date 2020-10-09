@@ -57,7 +57,7 @@ async def GetNew(n:int=20):
             if exists == 0: # Insert into database
                 _db.insert("posts", { "sub_id": submission.id, "title": submission.title, "url": submission.url, "votes": submission.score, "subreddit": CALPOLY, "created": submission.created_utc })
         # Search ProgrammerHumor
-        for ubmission in phSubreddit.search('self:no', sort='new', limit=n*5): # ProgrammerHumor is much more active so we'll up the limit
+        for submission in phSubreddit.search('self:no', sort='new', limit=n*5): # ProgrammerHumor is much more active so we'll up the limit
             sql = "SELECT EXISTS(SELECT * FROM posts WHERE sub_id='{}' LIMIT 1)".format(submission.id)
             r = _db.query(sql)
             exists = r.fetchone()[0]
