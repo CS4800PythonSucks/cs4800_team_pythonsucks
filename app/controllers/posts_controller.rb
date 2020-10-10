@@ -7,14 +7,15 @@ class PostsController < ApplicationController
     perPage = 30
     params.require(:page)
     params.require(:sort)
+    params.require(:source)
     if params[:sort] == "new" then # Sort by created
-      @posts = Post.paginate(page: params[:page], per_page: perPage).order("created DESC")
+      @posts = Post.paginate(page: params[:page], per_page: perPage).order("created DESC").where(subreddit: params[:source])
     elsif params[:sort] == "votes" then # Sort by votes
-      @posts = Post.paginate(page: params[:page], per_page: perPage).order("votes DESC")
+      @posts = Post.paginate(page: params[:page], per_page: perPage).order("votes DESC").where(subreddit: params[:source])
     elsif params[:sort] == "rand" then # Random order
-      @posts = Post.paginate(page: params[:page], per_page: perPage).order("RAND()")
+      @posts = Post.paginate(page: params[:page], per_page: perPage).order("RAND()").where(subreddit: params[:source])
     else # Fall back to sort by created
-      @posts = Post.paginate(page: params[:page], per_page: perPage).order("created DESC")
+      @posts = Post.paginate(page: params[:page], per_page: perPage).order("created DESC").where(subreddit: params[:source])
     end
     respond_to do |format|
       format.html
