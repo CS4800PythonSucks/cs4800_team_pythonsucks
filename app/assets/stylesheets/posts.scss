@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .container {
-    max-width: 960px;
+    max-width: 760px;
     margin: auto;
 }
 
@@ -22,6 +22,10 @@
 
 .jumbotron {
     min-height: 300px;
+    padding: 20px 0px 20px 0px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #D3D3D3;
 }
 
 .img-thumbnail {
@@ -60,4 +64,28 @@
     color: #ccc;
     padding: 10px 0;
     height: 150px;
+}
+
+
+
+
+
+
+.label-container {
+    padding: 8px 8px 20px 8px;
+    margin-left: 95px;
+}
+
+.label {
+    font-size: 11px;
+    font-family: Monospace;
+    color: #7FFF00;
+}
+
+#button {
+    text-align: center;
+}
+
+#title {
+    font-size: 14px;
 }

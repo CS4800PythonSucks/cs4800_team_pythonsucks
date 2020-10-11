@@ -15,8 +15,8 @@
 <div class="container" role="main">
   <div class="page-header">
     <h3 id="imgTitle"><%= @post.title %></h3>
-    <span class="label label-success">Upvotes: <%= @post.votes %></span>
-    <span class="label label-info">Created: <%= @post.timestamp %></span>
+    <span class="label label-success">Upvotes | <%= @post.votes %></span>
+    <span class="label label-info">Created | <%= @post.timestamp %></span>
   </div>
   <div class="jumbotron vertical-center">
     <!--Use iframe tag for video link, img tag for image link-->
@@ -31,8 +31,10 @@
       <div id="caption"><%= @post.title %></div>
     </div>
     <% end %>
-  </div>  
-  <form action=<%= @post.source %> method="get" target="_blank">
-    <button type="submit" class="btn btn-lg btn-info">Source</button>
-  </form>
+  </div>
+  <div class="d-flex justify-content-between align-items-center" id="button">  
+     <form action=<%= @post.source %> method="get" target="_blank">
+       <button type="submit" class="btn btn-lg btn-info" >Source</button>
+     </form>
+  </div>
 </div>
