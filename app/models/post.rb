@@ -16,6 +16,9 @@ class Post < ApplicationRecord
     elsif url.start_with? "https://imgur.com/" or url.start_with? "http://imgur.com/" then
       token = url.split('/')
       return "https://i.imgur.com/" + token.last + ".jpg"
+    elsif url.start_with? "https://imgflip.com/" then
+      token = url.split('/')
+      return "https://i.imgflip.com/" + token.last + ".jpg"
     else
       return url
     end
