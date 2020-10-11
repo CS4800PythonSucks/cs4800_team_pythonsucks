@@ -21,7 +21,7 @@
   <div class="jumbotron vertical-center">
     <!--Use iframe tag for video link, img tag for image link-->
     <% if @post.is_video %>
-    <iframe class="center" src=<%= @post.link %> height="720px" width="100%" data-title=<%= @post.nb_title %>>iframe not supported</iframe>
+    <iframe class="center" src=<%= @post.link %> width="100%" height="380px" data-title=<%= @post.nb_title %>>iframe not supported</iframe>
     <% else %>
     <%= javascript_pack_tag 'modal_img' %>
     <img data-src="holder.js/200x200" id="homeImg" class="img-thumbnail center" src=<%= @post.link %> data-title=<%= @post.nb_title %> data-holder-rendered="true"><br>
