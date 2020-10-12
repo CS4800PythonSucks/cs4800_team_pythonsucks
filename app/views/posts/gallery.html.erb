@@ -20,10 +20,17 @@
         <li>
           <a href="/gallery?page=1&sort=rand">Random</a>
         </li>
+      </ul>
     </div>
   </div>
 </nav>
 <div class="container" role="main">
+  <!--Modal image for image links-->
+  <div id="modalDiv" class="modal">
+    <img id="modalImg" class="modal-content">
+    <div id="caption"></div>
+  </div>
+</div>
   <div class="album py-5 bg-light">
     <div class="container">
       <div class="row" id="post-gallery">
@@ -33,10 +40,5 @@
         <%= will_paginate %>
       </div>
     </div>
-  </div>
-  <!--Modal image for image links-->
-  <div id="modalDiv" class="modal">
-    <img id="modalImg" class="modal-content">
-    <div id="caption"></div>
   </div>
 </div>
