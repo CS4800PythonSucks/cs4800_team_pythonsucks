@@ -5,3 +5,15 @@ $('#post-gallery').append('<%= j render @posts %>');
   $(window).off('scroll');
   $('.pagination').remove();
 <% end %>
+// Redefine click to enlarge functionality
+// This is jank but we don't have a better solution at the moment
+// Show modal when img is clicked
+$("img").click(function() {
+$("#modalDiv").css("display", "block");
+$("#modalImg").attr("src", $(this).attr("src"));
+$("#caption").text($(this).data("title"));
+});
+// Hide modal when modal image is clicked
+$("#modalImg").click(function() {
+$("#modalDiv").hide();
+}); 
