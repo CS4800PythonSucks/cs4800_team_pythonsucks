@@ -13,7 +13,7 @@
       <p class="card-text text-center" id="title"><%= post.title %></p><br>
       <div class="card-body">
         <div class="container" id="button">
-          <%= button_to "Report", {:controller => "posts", :action => "report", :id=>post.id}, :method=>:patch, :class=>"btn btn-md btn-danger" %>
+          <%= button_to "Report", {:controller=>"posts", :action=>"report", :id=>post.id}, :method=>:patch, :class=>"btn btn-md btn-danger" %>
           <form action=<%= post.source %> method="get" target="_blank" >
             <button type="submit" class="btn btn-md btn-info" >Source</button>
           </form>

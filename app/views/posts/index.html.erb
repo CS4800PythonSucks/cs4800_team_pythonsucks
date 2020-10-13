@@ -33,7 +33,7 @@
     <% end %>
   </div>
   <div class="container" id="button">
-    <%= button_to "Report", {:controller => "posts", :action => "report", :id=>@post.id}, :method=>:patch, :class=>"btn btn-lg btn-danger" %>
+    <%= button_to "Report", {:controller=>"posts", :action=>"report", :id=>@post.id}, :method=>:patch, :class=>"btn btn-lg btn-danger" %>
     <form action=<%= @post.source %> method="get" target="_blank">
        <button type="submit" class="btn btn-lg btn-info" >Source</button>
     </form>

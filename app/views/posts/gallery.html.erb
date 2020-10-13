@@ -31,14 +31,13 @@
     <div id="caption"></div>
   </div>
 </div>
-  <div class="album py-5 bg-light">
-    <div class="container">
-      <div class="row" id="post-gallery">
-        <%= render @posts %>
-      </div>
-      <div id="infinite-scroll">
-        <%= will_paginate %>
-      </div>
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row" id="post-gallery">
+      <%= render @posts %>
+    </div>
+    <div id="infinite-scroll">
+      <%= will_paginate %>
     </div>
   </div>
 </div>
