@@ -32,9 +32,10 @@
     </div>
     <% end %>
   </div>
-  <div class="d-flex justify-content-between align-items-center" id="button">  
-     <form action=<%= @post.source %> method="get" target="_blank">
+  <div class="container" id="button">
+    <%= button_to "Report", {:controller => "posts", :action => "report", :id=>@post.id}, :method=>:patch, :class=>"btn btn-lg btn-danger" %>
+    <form action=<%= @post.source %> method="get" target="_blank">
        <button type="submit" class="btn btn-lg btn-info" >Source</button>
-     </form>
+    </form>
   </div>
 </div>
