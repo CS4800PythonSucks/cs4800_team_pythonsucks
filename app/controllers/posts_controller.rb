@@ -56,6 +56,7 @@ class PostsController < ApplicationController
   end
 
   def reported
+    http_basic_authenticate_or_request_with name: "rockstardev", password: "poop"
     @posts = Post.order("created DESC").where(broken: false, reported: true)
   end
 
