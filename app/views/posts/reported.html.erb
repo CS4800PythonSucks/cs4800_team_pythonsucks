@@ -1,0 +1,47 @@
+<%= javascript_pack_tag 'vi_scroll' %>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Home</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="/gallery?page=1&sort=new">Gallery</a>
+        </li>
+    </div>
+  </div>
+</nav>
+<% if @posts.length == 0 %>
+<div class="page-header">
+  <h1 class="center">There are currently no reported posts</h1>
+</div>
+<% else %>
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row" id="post-gallery">
+      <%= @posts.each do |post| %>
+      <div class="jumbotron">
+        <div class="card mb-4 shadow-sm" width="100%" height="100%">
+          <div class="label-container">
+            <span class="label label-success">Upvotes | <%= post.votes %></span>
+            <span class="label label-info">Created | <%= post.timestamp %></span>
+          </div>
+          <% if post.is_video %>
+          <iframe class="center" src=<%= post.link %> data-title=<%= post.nb_title %> width="150%" height="390px">iframe not supported</iframe>
+          <% else %>
+          <img class="img-thumbnail center" src=<%= post.link %> data-title=<%= post.nb_title %> width="100%" height="100%"><br>
+          <% end %>
+        </div>
+        <p class="card-text text-center" id="title"><%= post.title %></p><br>
+        <div class="container" id="button">
+          <%= button_to "Clear", {:controller=>"posts", :action=>"clear", :id=>post.id}, :method=>:patch, :class=>"btn btn-md btn-secondary" %>
+          <%= button_to "Confirm", {:controller=>"posts", :action=>"confirm", :id=>post.id}, :method=>:patch, :class=>"btn btn-md btn-success" %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+<% end %>
+
