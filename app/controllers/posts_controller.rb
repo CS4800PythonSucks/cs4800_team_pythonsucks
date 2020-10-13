@@ -37,6 +37,25 @@ class PostsController < ApplicationController
       format.js
       end
   end
+
+  def report
+    post = Post.find(params[:id])
+    post.update(reported: true)
+  end
+
+  def clear
+    post = Post.find(params[:id])
+    post.update(reported: false, broken: false)
+  end
+
+  def confirm
+    post = Post.find(params[:id])
+    post.update(reported: false, broken: true)
+  end
+
+  def reported
+    @posts = Post.order("created DESC").where(reported: true)
+  end
   
   # def upvote
   #   # Get authorization token from reddit
