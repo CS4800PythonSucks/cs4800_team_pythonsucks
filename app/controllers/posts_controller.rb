@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @post = Post.order("RAND()").first
+    @post = Post.order("RAND()").where(broken: false).first
   end
 
   def gallery
@@ -9,27 +9,27 @@ class PostsController < ApplicationController
     params.require(:sort)
     if params[:sort] == "new" then # Sort by created
       if params[:source] != nil then
-        @posts = Post.paginate(page: params[:page], per_page: perPage).order("created DESC").where(subreddit: params[:source])
+        @posts = Post.paginate(page: params[:page], per_page: perPage).order("created DESC").where(broken: false, subreddit: params[:source])
       else
         @posts = Post.paginate(page: params[:page], per_page: perPage).order("created DESC")
       end
     elsif params[:sort] == "votes" then # Sort by votes
       if params[:source] != nil then
-        @posts = Post.paginate(page: params[:page], per_page: perPage).order("votes DESC").where(subreddit: params[:source])
+        @posts = Post.paginate(page: params[:page], per_page: perPage).order("votes DESC").where(broken: false, subreddit: params[:source])
       else
         @posts = Post.paginate(page: params[:page], per_page: perPage).order("votes DESC")
       end
     elsif params[:sort] == "rand" then # Random order
       if params[:source] != nil then
-        @posts = Post.paginate(page: params[:page], per_page: perPage).order("RAND()").where(subreddit: params[:source])
+        @posts = Post.paginate(page: params[:page], per_page: perPage).order("RAND()").where(broken: false, subreddit: params[:source])
       else
         @posts = Post.paginate(page: params[:page], per_page: perPage).order("RAND()")
       end
     else # Fall back to sort by created
       if params[:source] != nil then
-        @posts = Post.paginate(page: params[:page], per_page: perPage).order("created DESC").where(subreddit: params[:source])
+        @posts = Post.paginate(page: params[:page], per_page: perPage).order("created DESC").where(broken: false, subreddit: params[:source])
       else
-        @posts = Post.paginate(page: params[:page], per_page: perPage).order("created DESC")
+        @posts = Post.paginate(page: params[:page], per_page: perPage).order("created DESC").where(broken: false)
       end
     end
     respond_to do |format|
@@ -54,7 +54,7 @@ class PostsController < ApplicationController
   end
 
   def reported
-    @posts = Post.order("created DESC").where(reported: true)
+    @posts = Post.order("created DESC").where(broken: false, reported: true)
   end
   
   # def upvote
