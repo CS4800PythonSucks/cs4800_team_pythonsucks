@@ -33,7 +33,17 @@
     cursor: pointer;
 }
 
-.img-thumbnail:hover {opacity: 0.7;}
+.img-thumbnail:hover {
+    opacity: 0.7;
+}
+
+.card-image-top {
+    cursor: pointer;
+}
+
+.card-image-top:hover {
+    opacity: 0.7;
+}
 
 .modal {
     display: none; /* Hidden by default */
@@ -84,4 +94,64 @@
 form {
     float: right;
     padding: 5px;
+}
+
+.card {
+    background-color: #F5F5F5;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+}
+
+.navbar {
+    background-color: #BEE7B8;
+}
+
+.nav-text {
+    color: #58595F;
+}
+
+.label {
+    border-radius: 3px;
+}
+
+.label-info {
+    background-color: #ADEBE0;
+}
+
+.label-success {
+    background-color: #96EEAF;
+}
+
+.btn {
+    border-radius: 10px;
+    border: 0px;
+}
+
+.btn:hover {
+    color: inherit;
+}
+
+.btn-info {
+    background-color: #ADEBE0;
+}
+
+.btn-info:hover {
+    background-color: #7CDFCD;
+}
+
+.btn-danger {
+    background-color: #F0A8B1;
+}
+
+.btn-danger:hover {
+    background-color: #E77381;
+}
+
+.param-change:hover {
+    cursor: pointer;
 }

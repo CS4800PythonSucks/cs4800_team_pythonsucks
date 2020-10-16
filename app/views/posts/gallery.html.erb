@@ -1,24 +1,30 @@
 <%= javascript_pack_tag 'pagination' %>
 <%= javascript_pack_tag 'vi_scroll' %>
 <%= javascript_pack_tag 'modal_img'%>
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<%= javascript_pack_tag 'param_change'%>
+<nav class="navbar navbar-light navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand">Gallery</a>
+      <a class="nav-text navbar-brand">Gallery</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li>
-          <a href="/"><strong>Home</strong></a>
+        <li><a class="nav-text" href="/"><strong>Home</strong></a></li>
+        <li class="dropdown">
+          <a href="#" class=" nav-text dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">Source</span> <span class="caret"></span></a>
+          <ul class="nav-text dropdown-menu">
+            <li><a class="nav-text param-change" data-param="source" data-val="all">All</a></li>
+            <li><a class="nav-text param-change" data-param="source" data-val="CalPolyPomona" href="#">r/CalPolyPomona</a></li>
+            <li><a class="nav-text param-change" data-param="source" data-val="ProgrammerHumor" href="#">r/ProgrammerHumor</a></li>
+          </ul>
         </li>
-        <li>
-          <a href="/gallery?page=1&sort=new">New</a>
-        </li>
-        <li>
-          <a href="/gallery?page=1&sort=votes">Top</a>
-        </li>
-        <li>
-          <a href="/gallery?page=1&sort=rand">Random</a>
+        <li class="dropdown">
+          <a href="#" class="nav-text dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">Sort</span> <span class="caret"></span></a>
+          <ul class="nav-text dropdown-menu">
+            <li><a class="nav-text param-change" data-param="sort" data-val="new">New</a></li>
+            <li><a class="nav-text param-change" data-param="sort" data-val="votes">Top</a></li>
+            <li><a class="nav-text param-change" data-param="sort" data-val="rand">Random</a></li>
+          </ul>
         </li>
       </ul>
     </div>

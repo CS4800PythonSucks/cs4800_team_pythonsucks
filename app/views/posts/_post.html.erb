@@ -1,24 +1,20 @@
-<div class="row">
-  <div class="jumbotron">
-    <div class="card mb-4 shadow-sm" width="100%" height="100%">
-      <div class="label-container">
-        <span class="label label-success">Upvotes | <%= post.votes %></span>
-        <span class="label label-info">Created | <%= post.timestamp %></span>
-      </div>
-      <% if post.is_video %>
-      <iframe class="center" src=<%= post.link %> data-title=<%= post.nb_title %> width="150%" height="390px">iframe not supported</iframe>
-      <% else %>
-      <img class="img-thumbnail center" src=<%= post.link %> data-title=<%= post.nb_title %> width="100%" height="100%"><br>
-      <% end %>
-      <p class="card-text text-center" id="title"><%= post.title %></p><br>
-      <div class="card-body">
-        <div class="container" id="button">
-          <%= button_to "Report", {:controller=>"posts", :action=>"report", :id=>post.id}, :method=>:patch, :class=>"btn btn-md btn-danger" %>
-          <form action=<%= post.source %> method="get" target="_blank" >
-            <button type="submit" class="btn btn-md btn-info" >Source</button>
-          </form>
-        </div>
-      </div>
+<div class="card border rounded py-1" width="100%" height="100%">
+  <div class="label-container">
+    <span class="nav-text label label-success">Upvotes | <%= post.votes %></span>
+    <span class="nav-text label label-info">Created | <%= post.timestamp %></span>
+  </div>
+  <% if post.is_video %>
+  <iframe class="rounded card-image-top center" src=<%= post.link %> data-title=<%= post.nb_title %> width="150%" height="390px">iframe not supported</iframe>
+  <% else %>
+  <img class="rounded card-image-top center" src=<%= post.link %> data-title=<%= post.nb_title %> width="100%" height="100%"><br>
+  <% end %>
+  <p class="nav-text card-text text-center" id="title"><%= post.title %></p><br>
+  <div class="card-body">
+    <div class="container" id="button">
+      <%= button_to "Report", {:controller=>"posts", :action=>"report", :id=>post.id}, :method=>:patch, :class=>"nav-text btn btn-md btn-danger", :id=>"report-btn" %>
+      <form action=<%= post.source %> method="get" target="_blank" >
+        <button type="submit" class="nav-text btn btn-md btn-info" >Source</button>
+      </form>
     </div>
   </div>
 </div>

@@ -1,13 +1,13 @@
 <%= javascript_pack_tag 'vi_scroll' %>
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-light navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand">Home</a>
+      <a class="nav-text navbar-brand">Home</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-          <a href="/gallery?page=1&sort=new">Gallery</a>
+          <a class="nav-text" href="/gallery?page=1&sort=new">Gallery</a>
         </li>
     </div>
   </div>
@@ -15,8 +15,8 @@
 <div class="container" role="main">
   <div class="page-header">
     <h3 id="imgTitle"><%= @post.title %></h3>
-    <span class="label label-success">Upvotes | <%= @post.votes %></span>
-    <span class="label label-info">Created | <%= @post.timestamp %></span>
+    <span class="nav-text label label-success">Upvotes | <%= @post.votes %></span>
+    <span class="nav-text label label-info">Created | <%= @post.timestamp %></span>
   </div>
   <div class="jumbotron vertical-center">
     <!--Use iframe tag for video link, img tag for image link-->
@@ -33,9 +33,9 @@
     <% end %>
   </div>
   <div class="container" id="button">
-    <%= button_to "Report", {:controller=>"posts", :action=>"report", :id=>@post.id}, :method=>:patch, :class=>"btn btn-lg btn-danger" %>
+    <%= button_to "Report", {:controller=>"posts", :action=>"report", :id=>@post.id}, :method=>:patch, :class=>"nav-text btn btn-lg btn-danger", :id=>"report-btn" %>
     <form action=<%= @post.source %> method="get" target="_blank">
-       <button type="submit" class="btn btn-lg btn-info" >Source</button>
+       <button type="submit" class="nav-text btn btn-lg btn-info" >Source</button>
     </form>
   </div>
 </div>

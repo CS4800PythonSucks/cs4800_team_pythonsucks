@@ -35,7 +35,7 @@
         </div>
         <p class="card-text text-center" id="title"><%= post.title %></p><br>
         <div class="container" id="button">
-          <%= button_to "Clear", {:controller=>"posts", :action=>"clear", :id=>post.id}, :method=>:patch, :class=>"btn btn-md btn-secondary" %>
+          <%= button_to "Clear", {:controller=>"posts", :action=>"clear", :id=>post.id}, :method=>:patch, :class=>"btn btn-md btn-dark" %>
           <%= button_to "Confirm", {:controller=>"posts", :action=>"confirm", :id=>post.id}, :method=>:patch, :class=>"btn btn-md btn-success" %>
         </div>
       </div>
