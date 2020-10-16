@@ -1,6 +1,7 @@
 <div class="card border rounded py-1" width="100%" height="100%">
   <div class="label-container">
     <span class="nav-text label label-success">Upvotes | <%= post.votes %></span>
+    <span class="nav-text label label-info">Source | <%= post.subreddit %></span>
     <span class="nav-text label label-info">Created | <%= post.timestamp %></span>
   </div>
   <% if post.is_video %>
