@@ -1,4 +1,5 @@
 <%= javascript_pack_tag 'vi_scroll' %>
+<%= javascript_pack_tag 'modal_img' %>
 <nav class="navbar navbar-light navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
@@ -12,30 +13,22 @@
     </div>
   </div>
 </nav>
-<div class="container" role="main">
-  <div class="page-header">
-    <h3 id="imgTitle"><%= @post.title %></h3>
-    <span class="nav-text label label-success">Upvotes | <%= @post.votes %></span>
-    <span class="nav-text label label-info">Created | <%= @post.timestamp %></span>
+<div class="container wrapper flex-grow-1" role="main">
+  <!--Modal image for image links-->
+  <div id="modalDiv" class="modal">
+    <img id="modalImg" class="modal-content">
+    <div id="caption"></div>
   </div>
-  <div class="jumbotron vertical-center">
-    <!--Use iframe tag for video link, img tag for image link-->
-    <% if @post.is_video %>
-    <iframe class="center" src=<%= @post.link %> width="100%" height="380px" data-title=<%= @post.nb_title %>>iframe not supported</iframe>
-    <% else %>
-    <%= javascript_pack_tag 'modal_img' %>
-    <img data-src="holder.js/200x200" id="homeImg" class="img-thumbnail center" src=<%= @post.link %> data-title=<%= @post.nb_title %> data-holder-rendered="true"><br>
-    <!--Modal image for image links-->
-    <div id="modalDiv" class="modal">
-      <img id="modalImg" class="modal-content">
-      <div id="caption"><%= @post.title %></div>
-    </div>
-    <% end %>
-  </div>
-  <div class="container" id="button">
-    <%= button_to "Report", {:controller=>"posts", :action=>"report", :id=>@post.id}, :method=>:patch, :class=>"nav-text btn btn-lg btn-danger", :id=>"report-btn" %>
-    <form action=<%= @post.source %> method="get" target="_blank">
-       <button type="submit" class="nav-text btn btn-lg btn-info" >Source</button>
-    </form>
+  <div class="row">
+    <%= render @post %>
   </div>
 </div>
+<footer class="nav-text page-footer font-small green" id="about">
+  <div class="container-fluid text-center text-md-left">
+    <h4>Welcome to Meme Poly, an image board that aggregates Cal Poly Pomona and CS memes</h4>
+    <p>
+      Enjoy the random meme above or visit the gallery for more!<br>
+      Help us out by reporting broken links with the report button.
+    </p>
+  </div>
+</footer>
