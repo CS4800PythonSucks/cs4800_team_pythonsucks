@@ -1,6 +1,6 @@
 $(document).ready(function() {
     // Show modal when img is clicked
-    $("#postImg").click(function() {
+    $(".card-image-top").click(function() {
         $("#modalDiv").css("display", "block");
         $("#modalImg").attr("src", $(this).attr("src"));
         $("#caption").text($(this).data("title").replace(/_/g, " "));
