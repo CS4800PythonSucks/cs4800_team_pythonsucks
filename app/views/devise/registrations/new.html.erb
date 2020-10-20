@@ -1,3 +1,21 @@
+<nav class="navbar navbar-light navbar-fixed-top">
+  <div class="container">
+    <div id="navbar" class="navbar-collapse collapse">
+      <div class="navbar-header">
+        <a class="nav-text navbar-brand"> MemePoly </a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li>
+          <a class="nav-text" href="/"><strong> Home </strong></a>
+        </li>
+        <li>
+          <a class="nav-text" href="/gallery?page=1&sort=new"> Gallery </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
