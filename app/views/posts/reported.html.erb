@@ -1,20 +1,20 @@
 <%= javascript_pack_tag 'vi_scroll' %>
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-light navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/">Home</a>
+      <a class="navbar-brand nav-text" href="/">Home</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-          <a href="/gallery?page=1&sort=new">Gallery</a>
+          <a class="nav-text" href="/gallery?page=1&sort=new">Gallery</a>
         </li>
     </div>
   </div>
 </nav>
 <% if @posts.length == 0 %>
-<div class="page-header">
-  <h1 class="center">There are currently no reported posts</h1>
+<div class="page-header text-center">
+  <h1>There are currently no reported posts</h1>
 </div>
 <% else %>
 <div class="album py-5 bg-light">
@@ -35,7 +35,7 @@
         </div>
         <p class="card-text text-center" id="title"><%= post.title %></p><br>
         <div class="container" id="button">
-          <%= button_to "Clear", {:controller=>"posts", :action=>"clear", :id=>post.id}, :method=>:patch, :class=>"btn btn-md btn-dark" %>
+          <%= button_to "Clear", {:controller=>"posts", :action=>"clear", :id=>post.id}, :method=>:patch, :class=>"button-form btn btn-md btn-dark" %>
           <%= button_to "Confirm", {:controller=>"posts", :action=>"confirm", :id=>post.id}, :method=>:patch, :class=>"btn btn-md btn-success" %>
         </div>
       </div>
