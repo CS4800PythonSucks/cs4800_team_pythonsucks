@@ -1,31 +1,6 @@
 <%= javascript_pack_tag 'vi_scroll' %>
 <%= javascript_pack_tag 'modal_img' %>
-<nav class="navbar navbar-light navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-right">
-    <p class="navbar-text">
-      <% if user_signed_in? %>
-        Logged in as <strong><%= current_user.email %></strong>.
-        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'nav-text' %> |
-        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'nav-text' %>
-      <% else %>
-        <%= link_to "Sign up", new_user_registration_path, :class =>  'nav-text' %> |
-        <%= link_to "Sign in", new_user_session_path, :class => 'nav-text' %>
-      <% end %>
-    </p>
-    </div>
-    <div class="navbar-header">
-      <a class="nav-text navbar-brand">Home</a>
-    </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li>
-          <a class="nav-text" href="/gallery?page=1&sort=new">Gallery</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<%= render "general_nav_bar" %>
 <div class="container wrapper flex-grow-1" role="main">
   <!--Modal image for image links-->
   <div id="modalDiv" class="modal">
