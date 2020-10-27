@@ -103,6 +103,26 @@
     background-color: #BEE7B8;
 }
 
+.navbar-header{
+    font-family: 'Lato', sans-serif;
+    font-weight: 900;
+    text-shadow: 4px 4px 4px #aaa;
+}
+
+.nav-gallery{
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    font-weight: 900;
+    text-shadow: 2px 2px 2px #aaa;
+}
+
+.dropdown-toggle, .gall-home{
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    font-weight: 900;
+    text-shadow: 2px 2px 2px #aaa;
+}
+
 .nav-text {
     color: #58595F;
 }
@@ -195,4 +215,14 @@ footer {
     padding-bottom: 60px;
     padding-left: 20px;
     padding-right: 20px;
+}
+
+.modal-content, #caption {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
 }
