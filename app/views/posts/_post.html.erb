@@ -1,4 +1,7 @@
 <div class="card border rounded py-1" width="100%" height="100%">
+  <div class="alert alert-danger text-center report-alert" data-post=<%= post.id %>>
+    Thank you for reporting this post.
+  </div>
   <div class="label-container">
     <span class="nav-text label label-success">Upvotes | <%= post.votes %></span>
     <span class="nav-text label label-info">Source | <%= post.subreddit %></span>
@@ -12,7 +15,7 @@
   <p class="nav-text card-text text-center" id="title"><%= post.title %></p><br>
   <div class="card-body">
     <div class="container" id="button">
-      <%= button_to "Report", {:controller=>"posts", :action=>"report", :id=>post.id}, :method=>:patch, :class=>"button-form nav-text btn btn-md btn-danger", :id=>"report-btn" %>
+      <%= button_to "Report", {:controller=>"posts", :action=>"report", :id=>post.id}, :method=>:patch, :class=>"button-form nav-text btn btn-md btn-danger report-btn", :data=>{"post"=>post.id}%>
       <form action=<%= post.source %> method="get" target="_blank" >
         <button type="submit" class="button-form nav-text btn btn-md btn-info" >Source</button>
       </form>

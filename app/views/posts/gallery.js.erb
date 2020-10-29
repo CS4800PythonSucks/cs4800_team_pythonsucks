@@ -17,3 +17,7 @@ $(".card-image-top").click(function() {
 $("#modalImg").click(function() {
     $("#modalDiv").hide();
 });
+// Redefine report alert functionality
+$(".report-btn").click(function() {
+    $(".report-alert[data-post=" + $(this).data("post") + "]").show();
+});
