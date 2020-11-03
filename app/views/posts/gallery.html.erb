@@ -4,7 +4,7 @@
 <%= javascript_pack_tag 'param_change'%>
 <%= javascript_pack_tag 'report_alert'%>
 <nav class="navbar navbar-light navbar-fixed-top">
-  <div style="max-width: 90%; margin: auto;">
+  <div style="max-width: 90%; margin: auto; min-height: 60px;">
     <div class="navbar-right">
       <p class="navbar-text">
         <% if user_signed_in? %>
@@ -18,12 +18,12 @@
       </p>
     </div>
     <div class="navbar-header">
-      <a class="nav-text navbar-brand" href="/">Gallery</a>
+      <a class="nav-text navbar-brand" href="/"><img src="/assets/billy_bronco.png" width="32px" height="32px"></a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li class="dropdown">
-          <a href="#" class="nav-text dropdown-item dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><img src="/assets/nataicons/24x24/menu.svg"></a>
+          <a href="#" class="nav-text dropdown-item dropdown-toggle" style="min-height: 60px; margin: auto;" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><img src="/assets/nataicons/24x24/menu.svg"></a>
           <ul class="nav-text dropdown-menu">
             <h6 class="dropdown-header">Sort</h6>
             <li><a class="nav-text param-change" data-param="sort" data-val="new">New</a></li>
