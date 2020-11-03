@@ -4,7 +4,7 @@
 <%= javascript_pack_tag 'param_change'%>
 <%= javascript_pack_tag 'report_alert'%>
 <nav class="navbar navbar-light navbar-fixed-top">
-  <div class="container">
+  <div style="max-width: 90%; margin: auto;">
     <div class="navbar-right">
       <p class="navbar-text">
         <% if user_signed_in? %>
@@ -18,25 +18,21 @@
       </p>
     </div>
     <div class="navbar-header">
-      <a class="nav-text navbar-brand">Gallery</a>
+      <a class="nav-text navbar-brand" href="/">Gallery</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li><a class="nav-text gall-home" href="/"><strong>Home</strong></a></li>
         <li class="dropdown">
-          <a href="#" class=" nav-text dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">Source</span> <span class="caret"></span></a>
+          <a href="#" class="nav-text dropdown-item dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><img src="/assets/nataicons/24x24/menu.svg"></a>
           <ul class="nav-text dropdown-menu">
-            <li><a class="nav-text param-change" data-param="source" data-val="all">All</a></li>
-            <li><a class="nav-text param-change" data-param="source" data-val="CalPolyPomona" href="#">r/CalPolyPomona</a></li>
-            <li><a class="nav-text param-change" data-param="source" data-val="ProgrammerHumor" href="#">r/ProgrammerHumor</a></li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="nav-text dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">Sort</span> <span class="caret"></span></a>
-          <ul class="nav-text dropdown-menu">
+            <h6 class="dropdown-header">Sort</h6>
             <li><a class="nav-text param-change" data-param="sort" data-val="new">New</a></li>
             <li><a class="nav-text param-change" data-param="sort" data-val="votes">Top</a></li>
             <li><a class="nav-text param-change" data-param="sort" data-val="rand">Random</a></li>
+            <h6 class="dropdown-header">Source</h6>
+            <li><a class="nav-text param-change" data-param="source" data-val="all">All</a></li>
+            <li><a class="nav-text param-change" data-param="source" data-val="CalPolyPomona" href="#">r/CalPolyPomona</a></li>
+            <li><a class="nav-text param-change" data-param="source" data-val="ProgrammerHumor" href="#">r/ProgrammerHumor</a></li>
           </ul>
         </li>
       </ul>

@@ -14,11 +14,10 @@
   <% end %>
   <p class="nav-text card-text text-center" id="title"><%= post.title %></p><br>
   <div class="card-body">
-    <div class="container" id="button">
-      <form action=<%= "/posts/broken/report/" + post.id.to_s %>, method="patch">
-        <button type="submit", class="button-form float-right nav-text btn btn-md btn-danger report-btn"><img src="/assets/nataicons/24x24/stop.svg"</button>
-      </form>
-      
+    <div class="container" style="max-width: 100%;" id="buttons">
+      <%= form_tag({:controller=>"posts", :action=>"report", :id=>post.id}, :method=>"patch") do %>
+      <%= button_tag image_tag("/assets/nataicons/24x24/stop.svg"), :type=>"submit" , :class=>"button-form float-right nav-text btn btn-md btn-danger report-btn", :data=>{"post"=>post.id}%>
+      <%end%>
       <form action=<%= post.source %> method="get" target="_blank" >
         <button type="submit" class="button-form float-right nav-text btn btn-md btn-info" ><img src="/assets/nataicons/24x24/external-link.svg"></button>
       </form>

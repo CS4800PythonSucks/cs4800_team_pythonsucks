@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   # Gallery route
   get '/gallery', to: 'posts#gallery'
   # Routes for managing reporting broken links
-  patch '/posts/broken/report/:id', to: 'posts#report' # Report a post as broken
+  patch 'posts/broken/report/:id', to: 'posts#report' # Report a post as broken
   patch 'posts/broken/clear/:id', to: 'posts#clear' # Clear a post as not broken
   patch 'posts/broken/confirm/:id', to: 'posts#confirm' # Confirm a link as broken
   get 'posts/broken/reported', to: 'posts#reported' # Display reported links
