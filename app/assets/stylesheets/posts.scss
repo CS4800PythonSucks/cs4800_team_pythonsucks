@@ -114,6 +114,14 @@
     color: #58595F;
 }
 
+.navbar-brand {
+    transition: .15s;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.2);
+}
+
 .label {
     border-radius: 3px;
 }
