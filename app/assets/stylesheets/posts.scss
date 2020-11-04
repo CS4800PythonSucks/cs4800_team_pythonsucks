@@ -21,21 +21,14 @@
     width: 97.5%;
 }
 
-.img-thumbnail {
-    width:655px;
-    cursor: pointer;
-}
-
-.img-thumbnail:hover {
-    opacity: 0.7;
-}
-
 .card-image-top {
     cursor: pointer;
+    transition: .15s;
 }
 
 .card-image-top:hover {
     opacity: 0.7;
+    transform: scale(1.01);
 }
 
 .modal {
@@ -87,6 +80,11 @@
 .button-form {
     margin-left: 5px;
     margin-right: 5px;
+    transition: .15s;
+}
+
+.button-form:hover {
+    transform: scale(1.3);
 }
 
 .float-right {
