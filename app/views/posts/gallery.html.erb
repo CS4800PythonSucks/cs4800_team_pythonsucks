@@ -5,7 +5,7 @@
 <%= javascript_pack_tag 'report_alert'%>
 <nav class="navbar navbar-light navbar-fixed-top">
   <div style="max-width: 90%; margin: auto; min-height: 60px;">
-    <div class="navbar-right" style="min-height: 60px; display: flex; align-items: center;">
+    <div class="navbar-right vertical-center" style="min-height: 60px;">
       <p class="navbar-text">
         <% if user_signed_in? %>
           Logged in as <strong><%= current_user.email %></strong>.

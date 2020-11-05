@@ -1,6 +1,6 @@
 <nav class="navbar navbar-light navbar-fixed-top">
   <div style="max-width: 90%; margin: auto; min-height: 60px;">
-    <div class="navbar-right" style="min-height: 60px; display: flex; align-items: center;">
+    <div class="navbar-right vertical-center" style="min-height: 60px;">
     <p class="navbar-text">
       <% if user_signed_in? %>
         Logged in as <strong><%= current_user.email %></strong>.
@@ -18,7 +18,7 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-          <a class="nav-text nav-gallery" href="/gallery?page=1&sort=new" style="min-height: 60px; margin: auto; display: flex; align-items: center;">Gallery</a>
+          <a class="nav-text nav-gallery" href="/gallery?page=1&sort=new" style="min-height: 60px; display: flex; align-items: center;">Gallery</a>
         </li>
       </ul>
     </div>
