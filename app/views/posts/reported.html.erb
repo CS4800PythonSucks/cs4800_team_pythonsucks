@@ -7,25 +7,12 @@
 <% else %>
 <div class="album py-5 bg-light">
   <div class="container">
-    <div class="row" id="post-gallery">
-      <%= @posts.each do |post| %>
-      <div class="jumbotron">
-        <div class="card mb-4 shadow-sm" width="100%" height="100%">
-          <div class="label-container">
-            <span class="nav-text label label-success">Upvotes | <%= post.votes %></span>
-            <span class="nav-text label label-info">Created | <%= post.timestamp %></span>
-          </div>
-          <% if post.is_video %>
-          <iframe class="center" src=<%= post.link %> data-title=<%= post.nb_title %> width="150%" height="390px">iframe not supported</iframe>
-          <% else %>
-          <img class="card-image-top center" src=<%= post.link %> data-title=<%= post.nb_title %> width="100%" height="100%"><br>
-          <% end %>
-        </div>
-        <p class="card-text text-center" id="title"><%= post.title %></p><br>
-        <div class="container" style="max-width: 100%;" id="buttons">
-          <%= button_to "Clear", {:controller=>"posts", :action=>"clear", :id=>post.id}, :method=>:patch, :class=>"button-form float-right btn btn-md btn-dark" %>
-          <%= button_to "Confirm", {:controller=>"posts", :action=>"confirm", :id=>post.id}, :method=>:patch, :class=>"button-form btn btn-md btn-success" %>
-        </div>
+    <%= @posts.each do |post| %>
+    <div class="jumbotron">
+      <%= render post %>
+      <div style="max-width: 100%;" id="buttons">
+        <%= button_to "Clear", {:controller=>"posts", :action=>"clear", :id=>post.id}, :method=>:patch, :class=>"button-form float-right btn btn-md btn-dark" %>
+        <%= button_to "Confirm", {:controller=>"posts", :action=>"confirm", :id=>post.id}, :method=>:patch, :class=>"button-form btn btn-md btn-success" %>
       </div>
     </div>
     <% end %>
