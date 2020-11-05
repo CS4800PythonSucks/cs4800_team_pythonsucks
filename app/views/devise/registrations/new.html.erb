@@ -10,17 +10,14 @@
     <div class="form-label-group">
       <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => "form-control email-field", :placeholder => "Email address"%>
     </div>
-    <div class="form-label-group">
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
+    <div class="form-label-group" style="padding-top: 20px">
       <%= f.password_field :password, autocomplete: "current-password", :class => "form-control password-field", :placeholder => "Password" %>
-    </div>
-    <div class="field">
       <%= f.password_field :password, autocomplete: "current-password", :class => "form-control password-field", :placeholder => "Confirm Password" %>
     </div>
-    <br>
-    <div class="actions">
+    <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %>
+    <div class="actions" style="padding-top: 20px;">
       <%= f.submit "Sign up", :class => "btn btn-lg btn-primary btn-block" %>
       <br>
       <%= render "devise/shared/links" %>

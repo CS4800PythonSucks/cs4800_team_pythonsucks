@@ -9,7 +9,7 @@
     <div class="form-label-group">
       <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => "form-control email-field", :placeholder => "Email address" %>
     </div>
-    <div class="form-label-group">
+    <div class="form-label-group" style="padding-top: 20px;">
       <%= f.password_field :password, autocomplete: "current-password", :class => "form-control password-field", :placeholder => "Password" %>
     </div>
     <% if devise_mapping.rememberable? %>
@@ -18,8 +18,7 @@
       <%= f.label :remember_me %>
     </div>
     <% end %>
-
-    <div class="actions">
+    <div class="actions" style="padding-top: 20px;">
       <%= f.submit "Sign in", :class => "btn btn-lg btn-primary btn-block" %>
       <br>
       <%= render "devise/shared/links" %>
