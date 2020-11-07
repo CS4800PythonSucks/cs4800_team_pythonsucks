@@ -6,7 +6,7 @@ class PostsController < ApplicationController
 
   def gallery
     @current_user = User.find_by(id: session[:user_id])
-    perPage = 30
+    perPage = 10
     params.require(:page)
     params.require(:sort)
     if params[:sort] == "new" then # Sort by created
