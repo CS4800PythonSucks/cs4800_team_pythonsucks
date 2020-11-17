@@ -21,6 +21,7 @@
       <form action=<%= post.source %> method="get" target="_blank" >
         <button type="submit" class="button-form float-right nav-text btn btn-md btn-info" ><img src="/assets/nataicons/24x24/external-link.svg"></button>
       </form>
+      <%= link_to favorite_text, favorites_update_path(post: @post), id:'favorite_link', remote: true %>
     </div>
   </div>
 </div>

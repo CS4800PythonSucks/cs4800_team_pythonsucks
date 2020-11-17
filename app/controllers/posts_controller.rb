@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @post = Post.order("RAND()").where(broken: false).first
     @current_user = User.find_by(id: session[:user_id])
@@ -62,4 +64,7 @@ class PostsController < ApplicationController
     @posts = Post.order("created DESC").where(broken: false, reported: true)
   end
 
+  def favorite
+    @favorite_exists = Favorite.where(post: @post, user: current_user) == [] ? false : true
+  end
 end
