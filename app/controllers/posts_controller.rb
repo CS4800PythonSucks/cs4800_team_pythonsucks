@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!
+  
 
   def index
     @post = Post.order("RAND()").where(broken: false).first
@@ -63,6 +63,7 @@ class PostsController < ApplicationController
   end
 
   def favorite
+    before_action :authenticate_user!
     @favorite_exists = Favorite.where(post: @post, user: current_user) == [] ? false : true
   end
 end
