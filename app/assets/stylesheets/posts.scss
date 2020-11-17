@@ -159,6 +159,10 @@
     background-color: #E77381;
 }
 
+.btn-warning {
+    background-color: #F9A03F;
+}
+
 .param-change:hover {
     cursor: pointer;
 }
@@ -219,4 +223,8 @@ footer {
 .mb-3 {
     padding-bottom: 10px;
     border-bottom: solid 2px #e5e5e5;
+}
+
+.alert {
+    text-align: center;
 }

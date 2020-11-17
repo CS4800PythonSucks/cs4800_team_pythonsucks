@@ -19,7 +19,11 @@
         <li>
           <a class="nav-text nav-gallery" href="/gallery?page=1&sort=new" style="min-height: 60px; display: flex; align-items: center;">Gallery</a>
         </li>
-        <a class="nav-text nav-favorite" href="/userfavorite" style="min-height: 60px; display: flex; align-items: center;">Favorites</a>
+        <% if user_signed_in? %>
+        <li>
+          <a class="nav-text nav-gallery" href="/userfavorite" style="min-height: 60px; display: flex; align-items: center;">Favorites</a>
+        </li>
+        <% end %>
       </ul>
     </div>
   </div>

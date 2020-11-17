@@ -3,11 +3,9 @@ class PostsController < ApplicationController
 
   def index
     @post = Post.order("RAND()").where(broken: false).first
-    @current_user = User.find_by(id: session[:user_id])
   end
 
   def gallery
-    @current_user = User.find_by(id: session[:user_id])
     perPage = 10
     params.require(:page)
     params.require(:sort)
