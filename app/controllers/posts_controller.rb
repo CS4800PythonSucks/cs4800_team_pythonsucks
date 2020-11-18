@@ -42,7 +42,6 @@ class PostsController < ApplicationController
   def userfavorite
     perPage = 10
     params.require(:page)
-    params.require(:sort)
     fav_ids = []
     favorites = Favorite.where("user_id = ?", current_user.id)
     for f in favorites
