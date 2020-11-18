@@ -34,6 +34,11 @@
             <li><a class="nav-text param-change" data-param="source" data-val="ProgrammerHumor" href="#">r/ProgrammerHumor</a></li>
           </ul>
         </li>
+        <% if user_signed_in? %>
+        <li>
+          <a class="nav-text nav-gallery" href="/userfavorite?page=1&sort=new" style="min-height: 60px; display: flex; align-items: center;">Favorites</a>
+        </li>
+        <% end %>
       </ul>
     </div>
   </div>

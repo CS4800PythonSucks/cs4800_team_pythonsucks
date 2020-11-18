@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   patch 'posts/broken/confirm/:id', to: 'posts#confirm' # Confirm a link as broken
   get 'posts/broken/reported', to: 'posts#reported' # Display reported links
   # Automatically refreshes on screen variable
-  get 'favorites/update'
+  post 'favorites/update/:post', to: 'posts#togglefavorite'
   # Home route
   root 'posts#index'
 end

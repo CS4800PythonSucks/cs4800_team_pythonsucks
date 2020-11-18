@@ -1,4 +1,4 @@
-<div class="card border rounded py-1" width="100%" height="100%">
+<div class="post-container card border rounded py-1" width="100%" height="100%" data-post=<%= post.id %>>
   <div class="alert alert-danger text-center report-alert" data-post=<%= post.id %>>
     Thank you for reporting this post.
   </div>
@@ -17,12 +17,14 @@
     <div class="container" style="max-width: 100%;" id="buttons">
       <%= form_tag({:controller=>"posts", :action=>"report", :id=>post.id}, :method=>"patch") do %>
       <%= button_tag image_tag("/assets/nataicons/24x24/stop.svg"), :type=>"submit" , :class=>"button-form float-right nav-text btn btn-md btn-danger report-btn", :data=>{"post"=>post.id}%>
-      <%end%>
+      <% end %>
       <form action=<%= post.source %> method="get" target="_blank" >
         <button type="submit" class="button-form float-right nav-text btn btn-md btn-info" ><img src="/assets/nataicons/24x24/external-link.svg"></button>
       </form>
       <% if user_signed_in? %>
-      <%= link_to image_tag("/assets/nataicons/24x24/bookmark.svg"), favorites_update_path(post: @post), id:'favorite_link', remote: true, :class=>"button-form btn btn-md btn-warning" %>
+      <%= form_tag({:controller=>"posts", :action=>"togglefavorite", :post=>post.id}, :method=>"post") do %>
+      <%= button_tag image_tag("/assets/nataicons/24x24/bookmark.svg"), :type=>"submit", :class=>"fav-btn button-form btn btn-md btn-warning", :data=>{"post"=>post.id} %>
+      <% end %>
       <% end %>
     </div>
   </div>

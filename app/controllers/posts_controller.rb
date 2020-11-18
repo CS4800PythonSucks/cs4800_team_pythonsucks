@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
   
-
   def index
     @post = Post.order("RAND()").where(broken: false).first
   end
@@ -38,6 +37,27 @@ class PostsController < ApplicationController
       format.html
       format.js
       end
+  end
+
+  def userfavorite
+    perPage = 10
+    params.require(:page)
+    params.require(:sort)
+    fav_ids = []
+    favorites = Favorite.where("user_id = ?", current_user.id)
+    for f in favorites
+      fav_ids.push(f.post_id)
+    end
+    @posts = Post.paginate(page: params[:page], per_page: perPage).order("created DESC").where("broken = ?", false).find(fav_ids)
+  end
+
+  def togglefavorite
+    if not Favorite.exists?({:user_id=>current_user.id, :post_id=>params[:post]}) then
+      Favorite.create(:user_id=>current_user.id, :post_id=>params[:post])
+    else
+      f = Favorite.where("user_id = ? AND post_id = ?", current_user.id, params[:post]).first
+      Favorite.delete(f.id)
+    end
   end
 
   def report

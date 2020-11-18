@@ -1,0 +1,27 @@
+<%= javascript_pack_tag 'vi_scroll' %>
+<%= javascript_pack_tag 'modal_img' %>
+<%= javascript_pack_tag 'report_alert'%>
+<%= javascript_pack_tag 'unfav_hide' %>
+<%= render "general_nav_bar" %>
+<% if @posts.length == 0 %>
+<div class="page-header text-center">
+  <h1>You have no favorited posts</h1>
+</div>
+<% else %>
+<div class="container" role="main">
+  <!--Modal image for image links-->
+  <div id="modalDiv" class="modal">
+    <img id="modalImg" class="modal-content">
+    <div id="caption"></div>
+  </div>
+</div>
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row" id="post-gallery">
+      <% for post in @posts %>
+      <%= render post %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<% end %>
