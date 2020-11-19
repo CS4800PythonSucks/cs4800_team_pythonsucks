@@ -8,12 +8,11 @@ To launch the service, start the database updater script first and then start ra
 ./db_updater.sh && rails server
 </code><br>
 If requirements were installed into a python virtual environment, edit <strong>db_updater.sh</strong> to source the virtual environment first<br>
-<strong>The server is currently hosted under the address:<code>54.193.67.197:3003</code></strong>
 <h3>Routes</h3>
 <p>
   <a href="http://memepoly.com/">www.memepoly.com</a> <strong>(Domain name)</strong><br>
-  <a href="http://memepoly.com/">Home</a> <strong>(WIP)</strong><br>
-  <a href="http://memepoly.com/gallery?page=1&sort=new">Gallery</a> <strong>(Very WIP)</strong>
+  <a href="http://memepoly.com/">Home</a><br>
+  <a href="http://memepoly.com/gallery?page=1&sort=new">Gallery</a>
 </p>
 <h3>Assignment 3</h3>
 <p>
