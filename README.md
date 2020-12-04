@@ -10,7 +10,7 @@ To launch the service, start the database updater script first and then start ra
 If requirements were installed into a python virtual environment, edit <strong>db_updater.sh</strong> to source the virtual environment first<br>
 <h3>Routes</h3>
 <p>
-  <a href="http://memepoly.com/">www.memepoly.com</a> <strong>(Domain name)</strong><br>
+  <a href="http://memepoly.com/">memepoly.com</a> <strong>(Domain name)</strong><br>
   <a href="http://memepoly.com/">Home</a><br>
   <a href="http://memepoly.com/gallery?page=1&sort=new">Gallery</a>
 </p>
